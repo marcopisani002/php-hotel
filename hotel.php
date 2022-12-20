@@ -105,26 +105,26 @@ if ($hasFilters) {
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-3"> PHP HOTELS</h1>
+        <h1 class="text-center mt-3 text-white"> PHP HOTELS</h1>
         <form action="" method="get">
             <div class="row justify-content-center ">
                 <div class="col-6">
                     <div class="mb-3">
-                        <label class="form-label"><strong> Hotel's Name </strong> </label>
-                        <input type="text" class="form-control" name="name" value="<?php echo $_GET["name"] ?? '' ?>">
+                        <label class="form-label text-white "><strong> Hotel's Name </strong> </label>
+                        <input type="text" class="form-control bg-info text-white border-0" name="name" value="<?php echo $_GET["name"] ?? '' ?>">
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault1"
                             name="parking" value="<?php echo $_GET["parking"] ?? '' ?>">
                         <label class="form-check-label" for="flexRadioDefault1">
-                            <strong> Includes Parking </strong></label>
+                            <strong> Includes Parking (statico non funziona) </strong></label>
 
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
-                        <label class="form-label"> <strong> vote (min) </strong></label>
-                        <input type="number" class="form-control" name="vote"
+                        <label class="form-label text-white"> <strong> vote (min) </strong></label>
+                        <input type="number" class="form-control bg-info text-white border-0" name="vote"
                             value="<?php echo $_GET["vote"] ?? '' ?>">
                     </div>
                 </div>
@@ -134,7 +134,7 @@ if ($hasFilters) {
             <div class="text-center">
 
                 <a class="btn btn-secondary" href="hotel.php">Delete</a>
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button class="btn btn-success" type="submit">Search</button>
             </div>
         </form>
 
