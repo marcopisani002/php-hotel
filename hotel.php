@@ -1,5 +1,5 @@
 <?php
- $isParking = true;
+$isParking = true;
 $filteredData = [];
 $hotels = [
 
@@ -46,11 +46,11 @@ $hotels = [
 
 ];
 // if ($isParking) {
-//     echo "Loggato";
+//     echo "si";
 // } else {
-//     echo "Non loggato";
+//     echo "no";
 // };
-$hasFilters = isset($_GET["name"]) || isset($_GET["parking"]);
+$hasFilters = isset($_GET["name"]) || isset($_GET["vote"]);
 
 if ($hasFilters) {
 
@@ -63,7 +63,9 @@ if ($hasFilters) {
             $Push = false;
 
         }
-
+        if (isset($_GET["vote"]) && $hotel["vote"] < $_GET["vote"]) {
+            $Push = false;
+          }
 
         // if ($hotel["parking"] === $isParking ) {
         //     $Push = false;
@@ -80,10 +82,7 @@ if ($hasFilters) {
 }
 
 
-echo "<pre>";
-// var_dump($filteredData);
-// print_r($_GET);
-echo "</pre>";
+
 
 // var_dump($hotels)
 ?>
@@ -100,7 +99,7 @@ echo "</pre>";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
-    <!-- Custom css -->
+  
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -121,13 +120,22 @@ echo "</pre>";
                             <strong> Includes Parking </strong></label>
 
                     </div>
-
                 </div>
-                <div class="text-center">
-
-                    <a class="btn btn-secondary" href="hotel.php">Delete</a>
-                    <button class="btn btn-primary" type="submit">Search</button>
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label class="form-label"> <strong> vote (min) </strong></label>
+                        <input type="number" class="form-control" name="vote"
+                            value="<?php echo $_GET["vote"] ?? '' ?>">
+                    </div>
                 </div>
+
+
+            </div>
+            <div class="text-center">
+
+                <a class="btn btn-secondary" href="hotel.php">Delete</a>
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
         </form>
 
 
